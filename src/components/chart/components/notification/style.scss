@@ -1,0 +1,31 @@
+div.notification-form {
+  pointer-events: none;
+  position: absolute;
+  z-index: 5001;
+  cursor: default;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+  .property {
+    font-weight: bold;
+    color: #444444;
+  }
+  .value {
+    margin-left: 10px;
+  }
+}
+
+.circle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  z-index: 5000;
+  border-radius: 50%;
+  border: 3px solid;
+}

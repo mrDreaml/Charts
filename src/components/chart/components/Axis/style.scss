@@ -1,0 +1,22 @@
+.axis-x-container {
+  display: flex;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+  .axis-x-values {
+    transition: .8s;
+    position: absolute;
+  }
+}
+
+.axis-y-container {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 50px;
+
+  .axis-y-values {
+    transition: .8s;
+    text-align: right;
+    position: absolute;
+  }
+}

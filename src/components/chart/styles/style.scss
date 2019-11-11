@@ -1,0 +1,282 @@
+$textFontFamily: "Segoe UI", Arial, sans-serif;
+$light-theme--bgFill: #fff;
+$light-theme--bgFill2: #eee;
+$light-theme--bordersColor: #eee;
+$light-theme--AxisTextColor: #ccc;
+$light-theme--focus: rgba(220, 220, 230, 0.5);
+$light-theme--focus-moce-element: rgba(120, 120, 170, 0.2);
+$light-theme--focus-moce-elementDrag: rgba(120, 120, 170, 0.4);
+$light-theme-buttonTextColor: #222;
+$light-theme-buttonTextColor2: #777;
+
+$dark-theme--bgFill: #222;
+$dark-theme--bgFill2: #444;
+$dark-theme--bordersColor: #555;
+$dark-theme--AxisTextColor: #999;
+$dark-theme--focus: rgba(50, 50, 50, 0.7);
+$dark-theme--focus-moce-element: rgba(80, 80, 80, 0.5);
+$dark-theme--focus-moce-elementDrag: rgba(80, 80, 80, 0.7);
+$dark-theme-buttonTextColor: #999;
+$dark-theme-buttonTextColor2: #777;
+
+[class^="ChartJS"] {
+    height: 100%;
+     width: 100%;
+     position: relative;
+     overflow: hidden;
+}
+
+[class^="ChartJS-map"] {
+  height: 100px;
+  width: 100%;
+  position: relative;
+}
+
+svg[class*="light-theme"] {
+  .not-selected-bg-map {
+    fill: $light-theme--focus-moce-element;
+  }
+}
+
+svg[class*="dark-theme"] {
+  .not-selected-bg-map {
+    fill: $dark-theme--focus-moce-element;
+  }
+}
+
+svg[class*="light-theme"],
+svg[class*="dark-theme"] {
+  .chart--path {
+    fill: none;
+    stroke-width: 3;
+  }
+
+  .axis-values {
+    font-family: $textFontFamily;
+    user-select: none;
+  }
+
+  .axis-y-line {
+    stroke-width: 1;
+  }
+
+  .notification-background {
+    rx: 5px;
+  }
+
+  .notification-markline {
+    stroke-width: 1;
+  }
+
+  .notification-text,
+  .notification-text-caption {
+    font-family: $textFontFamily;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  .notification-text {
+    font-weight: bold;
+  }
+}
+
+svg.ChartJS-map--light-theme, svg.ChartJS-map--dark-theme {
+  .focus-move-element-scroll {
+    fill: transparent;
+  }
+}
+
+[class*="chart-select--container"] {
+  padding: 20px 0;
+  display: flex;
+
+  button.chart-select-button {
+    margin: 10px;
+    padding: 0px 15px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+
+    &:hover {
+      span {
+        transition: 0.3s;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    .chart--circle-color {
+      margin: auto;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+
+    .chart--circle-color-non-select {
+      display: flex;
+
+      &::after {
+        content: "";
+        margin: auto;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  span {
+    margin-left: 10px;
+    font-size: 2em;
+    font-weight: 600;
+  }
+}
+
+
+
+// light
+
+svg.ChartJS--light-theme {
+  .chart-background {
+    fill: $light-theme--bgFill;
+  }
+
+  .axis-values {
+    fill: $light-theme--AxisTextColor;
+    font-family: $textFontFamily;
+  }
+
+  .axis-y-line {
+    stroke: $light-theme--bordersColor;
+  }
+
+  .notification-background {
+    fill: $light-theme--bgFill;
+    stroke: $light-theme--bordersColor;
+  }
+
+  .notification-marker {
+    fill: $light-theme--bgFill;
+  }
+
+  .notification-markline {
+    stroke: $light-theme--bordersColor;
+  }
+
+  .notification-text,
+  .notification-text-caption {
+    font-family: $textFontFamily;
+  }
+}
+
+.ChartJS-map--light-theme {
+  .chart-background {
+    fill: $light-theme--bgFill;
+  }
+
+  .not-selected-bg {
+    fill: $light-theme--focus;
+  }
+  .focus-move-element {
+    fill: $light-theme--focus-moce-elementDrag;
+  }
+}
+
+.chart-select--container--light-theme {
+  button.chart-select-button {
+    background: $light-theme--bgFill2;
+    &:hover {
+      span {
+        color: $light-theme-buttonTextColor2;
+      }
+    }
+
+    .chart--circle-color-non-select {
+      &::after {
+        background: $light-theme--bgFill2;
+      }
+    }
+  }
+
+  span {
+    font-family: $textFontFamily;
+    color: $light-theme-buttonTextColor;
+  }
+}
+
+
+
+// dark theme
+
+svg.ChartJS--dark-theme {
+  .chart-background {
+    fill: $dark-theme--bgFill;
+  }
+
+  .axis-values {
+    fill: $dark-theme--AxisTextColor;
+    font-family: $textFontFamily;
+  }
+
+  .axis-y-line {
+    stroke: $dark-theme--bordersColor;
+  }
+
+  .notification-background {
+    fill: $dark-theme--bgFill;
+    stroke: $dark-theme--bordersColor;
+  }
+
+  .notification-marker {
+    fill: $dark-theme--bgFill;
+  }
+
+  .notification-markline {
+    stroke: $dark-theme--bordersColor;
+  }
+
+  .notification-text,
+  .notification-text-caption {
+    font-family: $textFontFamily;
+  }
+
+  .notification-text-caption {
+    fill: $dark-theme--AxisTextColor;
+  }
+}
+
+.ChartJS-map--dark-theme {
+  .chart-background {
+    fill: $dark-theme--bgFill;
+  }
+  .not-selected-bg {
+    fill: $dark-theme--focus;
+  }
+  .focus-move-element {
+    fill: $dark-theme--focus-moce-elementDrag;
+  }
+}
+
+.chart-select--container--dark-theme {
+  button.chart-select-button {
+    background: $dark-theme--bgFill2;
+    &:hover {
+      span {
+        color: $dark-theme-buttonTextColor2;
+      }
+    }
+
+    .chart--circle-color-non-select {
+      &::after {
+        background: $dark-theme--bgFill2;
+      }
+    }
+  }
+
+  span {
+    font-family: $textFontFamily;
+    color: $dark-theme-buttonTextColor;
+  }
+}
