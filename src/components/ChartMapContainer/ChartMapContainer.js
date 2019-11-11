@@ -3,8 +3,6 @@ import Chart from '../Chart/Chart';
 import Focus from '../Focus/Focus';
 
 import '../../styles/style.scss';
-// import './style.scss';
-
 
 class ChartMainContainer extends PureComponent {
   chartSVGContainer = React.createRef();

@@ -23,6 +23,7 @@ const circlesRender = ({ circles }) => {
         borderColor: color,
       }}
       className={CLASS_NAMES.circle}
+      key={`${CLASS_NAMES.circle}=${value}`}
     />
   ));
 };
@@ -43,7 +44,7 @@ const Notification = ({
         }}
       >
         { notes.map(({ property, value }) => (
-          <div className={CLASS_NAMES.note}>
+          <div className={CLASS_NAMES.note} key={`${CLASS_NAMES.note}=${value}`}>
             <span className={CLASS_NAMES.note.property}>{`${property}:`}</span>
             <span className={CLASS_NAMES.note.value}>{_round(value, constants.defaultRounding)}</span>
           </div>

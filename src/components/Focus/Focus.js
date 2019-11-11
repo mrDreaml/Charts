@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { debounce } from 'throttle-debounce';
-import constants from '../../constants/constants';
 
 import './style.scss';
 import { getOffset } from '../../utils/getOffset';
+import { calcFocusBasis, calcNewRange } from './utils';
 
 const CLASS_NAMES = {
   focusContainer: 'focus--container',
@@ -29,19 +29,13 @@ class Focus extends PureComponent {
     const { x } = getOffset(event);
     const { updateRange, steps: { xStep }, selfRange } = this.props;
     const { range } = this.state;
-    let newRange = [...range];
-    if (Array.isArray(data)) {
-      if (!this.focusBasis) {
-        this.focusBasis = Math.round((x - Math.round(range[0] * xStep)) / xStep);
-      }
-      const index = Math.round(x / xStep);
-      const diff = newRange[1] - newRange[0];
-      newRange = [index - this.focusBasis, index + diff - this.focusBasis];
-    } else {
-      const index = Math.round(x / xStep);
-      newRange[data] = index;
+    if (!this.focusBasis) {
+      this.focusBasis = calcFocusBasis(x, range, xStep);
     }
-    if (newRange[1] - newRange[0] >= constants.minFlipSize && newRange[0] > selfRange[0] - 1 && newRange[1] < selfRange[1]) {
+    const newRange = calcNewRange({
+      x, data, updateRange, xStep, selfRange, range, focusBasis: this.focusBasis,
+    });
+    if (newRange) {
       if (this.debounceUpdateRange) {
         this.debounceUpdateRange(newRange);
       } else {

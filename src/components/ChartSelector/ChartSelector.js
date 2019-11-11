@@ -1,10 +1,10 @@
 import React from 'react';
-import constants from '../constants/constants';
+import constants from '../../constants/constants';
 
 const ChartSelector = ({
   graphicSwitcher, selectedGraphics, theme, inputData: { colors, names },
 }) => (
-  <div className={`${'chart-select--container--'}${theme}`}>
+  <div className={`chart-select--container--${theme}`}>
     {Object.keys(selectedGraphics).map((buttonName) => {
       if (buttonName !== constants.colNameX) {
         const style = {
