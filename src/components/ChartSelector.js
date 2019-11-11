@@ -1,5 +1,5 @@
 import React from 'react';
-import constants from '../../constants/constants';
+import constants from '../constants/constants';
 
 const ChartSelector = ({
   graphicSwitcher, selectedGraphics, theme, inputData: { colors, names },

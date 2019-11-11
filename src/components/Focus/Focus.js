@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { debounce } from 'throttle-debounce';
-import constants from '../../../constants/constants';
+import constants from '../../constants/constants';
 
 import './style.scss';
 import { getOffset } from '../../utils/getOffset';

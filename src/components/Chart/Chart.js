@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import ChartLines from '../ChartLines/ChartLines';
 
-import constants from '../../../constants/constants';
+import constants from '../../constants/constants';
 
 import '../../styles/style.scss';
 import './style.scss';

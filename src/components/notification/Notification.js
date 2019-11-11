@@ -1,7 +1,7 @@
 import React from 'react';
 import { pure } from 'recompose';
 import _round from 'lodash/round';
-import constants from '../../../constants/constants';
+import constants from '../../constants/constants';
 
 import './style.scss';
 

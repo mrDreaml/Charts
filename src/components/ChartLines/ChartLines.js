@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'uuid';
-import constants from '../../../constants/constants';
+import constants from '../../constants/constants';
 
 import './style.scss';
 

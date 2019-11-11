@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import ChartJS from '../ChartMainContainer/Hoc';
 import ChartJSMap from '../ChartMapContainer/Hoc';
 import ChartSelector from '../ChartSelector';
-import constants from '../../../constants/constants';
+import constants from '../../constants/constants';
 
 import './style.scss';
 

@@ -1,19 +1,19 @@
 import { compose, withProps } from 'recompose';
-import ChartGraphicMap from './ChartGraphicMap';
-import constants from '../../../constants/constants';
+import ChartGraphic from './ChartMainContainer';
+import constants from '../../constants/constants';
 
 const STEP = 'Step';
 
 export default compose(
   withProps((props) => {
     const {
-      inputData, selfRange, selectedGraphics, container,
+      inputData, range, selectedGraphics, container,
     } = props;
 
     const { width, height } = container.getBoundingClientRect();
     const actualColumns = Object.entries(inputData.columns).reduce((acc, [key, values]) => {
       if (selectedGraphics[key]) {
-        acc[key] = values.slice(...selfRange);
+        acc[key] = values.slice(...range);
       }
       return acc;
     }, {});
@@ -32,17 +32,26 @@ export default compose(
       return acc;
     }, {});
 
+    const yMaxValue = Object.entries(actualColumns).reduce((acc, [key, values]) => {
+      if (key !== constants.colNameX) {
+        return Math.max(acc, Math.max(...values));
+      }
+      return acc;
+    }, 0);
+
     return {
       ...props,
       steps,
       inputData: {
         ...inputData,
         columns: actualColumns,
+        allColumns: inputData.columns,
       },
       containerBounding: {
         width,
         height,
       },
+      yMaxValue,
     };
   }),
-)(ChartGraphicMap);
+)(ChartGraphic);

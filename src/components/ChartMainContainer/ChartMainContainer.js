@@ -6,7 +6,7 @@ import Chart from '../Chart/Chart';
 
 import '../../styles/style.scss';
 import './style.scss';
-import constants from '../../../constants/constants';
+import constants from '../../constants/constants';
 
 const CLASS_NAMES = {
   yAxisAndSvgContainer: 'y-axis-and-svg--container',

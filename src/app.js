@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import ChartJS from './chart/components/Main';
-import inputData from '../data/testData';
+import ChartJS from './components/Main';
+import inputData from './data/testData';
 import Header from './shares/Header';
 
 import constants from './constants/constants';
 
-import './chart/styles/pageStyle.scss';
+import './styles/pageStyle.scss';
 
 const { themes } = constants;
 
