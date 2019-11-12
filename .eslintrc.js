@@ -3,8 +3,9 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    mocha: true,
   },
-  extends: 'airbnb',
+  extends: ['airbnb', 'plugin:mocha/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -18,10 +19,14 @@ module.exports = {
   },
   plugins: [
     'react',
+    'mocha',
   ],
   rules: {
     "react/jsx-filename-extension": "off",
     "react/prop-types": 0,
+    "prefer-arrow-callback": 0,
+    "mocha/prefer-arrow-callback": 2,
+    "func-names": "off",
     "max-len": [
       2,
       {
