@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import ChartJS from './components/Main';
+import ChartJS from './components/Main/Index';
 import inputData from './data/testData';
 import Header from './shares/Header';
 
