@@ -17,9 +17,6 @@ const CLASS_NAMES = {
 class Focus extends PureComponent {
   constructor(props) {
     super(props);
-    this.listener;
-    this.focusBasis;
-    this.debounceUpdateRange;
     this.state = {
       range: props.range,
     };
@@ -36,12 +33,7 @@ class Focus extends PureComponent {
       x, data, updateRange, xStep, selfRange, range, focusBasis: this.focusBasis,
     });
     if (newRange) {
-      if (this.debounceUpdateRange) {
-        this.debounceUpdateRange(newRange);
-      } else {
-        this.debounceUpdateRange = debounce(50, _data => updateRange(_data));
-        this.debounceUpdateRange(newRange);
-      }
+      updateRange(newRange);
 
       this.setState({
         range: newRange,
@@ -60,7 +52,6 @@ class Focus extends PureComponent {
     const { container } = this.props;
     container.removeEventListener('mousemove', this.listener, false);
     container.removeEventListener('touchmove', this.listener, false);
-    this.debounceUpdateRange = undefined;
     this.listener = undefined;
     this.focusBasis = undefined;
   };
