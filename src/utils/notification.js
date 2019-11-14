@@ -37,7 +37,6 @@ export const getNotificationRenderData = ({
   });
 
   return {
-    isShow: true,
     pos: getPosition({
       x, y, width, height,
     }),

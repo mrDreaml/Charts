@@ -21,7 +21,7 @@ export const calcSteps = (columns, width, height) => Object.entries(columns).red
   return acc;
 }, {});
 
-export const calcYMaxValue = (columns) => Object.entries(columns).reduce((acc, [key, values]) => {
+export const calcYMaxValue = columns => Object.entries(columns).reduce((acc, [key, values]) => {
   if (key !== constants.colNameX) {
     return Math.max(acc, Math.max(...values));
   }

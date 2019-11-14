@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
+    "prod": "webpack-dev-server --mode production",
     "build": "webpack -p",
-    "test": "echo \"No test specified\" && exit 0"
+    "baseTest": "mocha --opts mocha.opts ./src/utils/tests/**/*.test.js"
   },
   "keywords": [],
   "author": "Dima Andreev",
