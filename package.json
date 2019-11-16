@@ -7,7 +7,9 @@
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack-dev-server --mode production",
     "build": "webpack -p",
-    "baseTest": "mocha --opts mocha.opts ./src/utils/tests/**/*.test.js"
+    "base-tests": "mocha --opts mocha.opts ./src/utils/tests/**/*.test.js",
+    "component-tests": "mocha --opts mocha.opts ./src/components/**/*.test.js",
+    "tests": "mocha --opts mocha.opts ./src/**/*.test.js"
   },
   "keywords": [],
   "author": "Dima Andreev",

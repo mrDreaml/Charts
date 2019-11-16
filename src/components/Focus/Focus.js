@@ -3,7 +3,7 @@ import { debounce } from 'throttle-debounce';
 
 import './style.scss';
 import { getOffset } from '../../utils/getOffset';
-import { calcFocusBasis, calcNewRange } from './utils';
+import { calcFocusBasis, calcNewRange } from './utils/calcNewRange';
 
 const CLASS_NAMES = {
   focusContainer: 'focus--container',

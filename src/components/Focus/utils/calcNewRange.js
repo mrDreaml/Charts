@@ -1,6 +1,6 @@
-import constants from '../../constants/constants';
+import constants from '../../../constants/constants';
 
-const isValidRange = (newRange, selfRange) => (
+export const isValidRange = (newRange, selfRange) => (
   newRange[1] - newRange[0] >= constants.minFlipSize
     && newRange[0] > selfRange[0] - 1
     && newRange[1] < selfRange[1]);
@@ -18,10 +18,11 @@ export const calcNewRange = ({
     newRange[data] = index;
   }
 
+  console.log(newRange, selfRange)
   if (isValidRange(newRange, selfRange)) {
     return newRange;
   }
-  return null;
+  return;
 };
 
 export const calcFocusBasis = (x, range, xStep) => Math.round((x - Math.round(range[0] * xStep)) / xStep);
