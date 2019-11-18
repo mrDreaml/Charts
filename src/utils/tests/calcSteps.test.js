@@ -26,7 +26,7 @@ describe('calcSteps', function () {
     const columnsTest = {};
     const actualResult = calcSteps(columnsTest, width, height);
     const expectedResult = undefined;
-    assert.deepEqual(actualResult, expectedResult);
+    assert.deepEqual(actualResult, expectedResult, 'if no columns, should return undefined');
   });
 
   it('checks with width = 0 and height = 0', function () {
@@ -45,6 +45,6 @@ describe('calcSteps', function () {
     const height = -100;
     const actualResult = calcSteps(columns, width, height);
     const expectedResult = undefined;
-    assert.deepEqual(actualResult, expectedResult);
+    assert.deepEqual(actualResult, expectedResult, 'height and width should be positive numbers');
   });
 });

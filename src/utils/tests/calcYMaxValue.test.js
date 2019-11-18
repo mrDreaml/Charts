@@ -31,7 +31,7 @@ describe('calcYMaxValue', function () {
 
     const actualResult = calcYMaxValue(columnsTest);
     const expectedResult = undefined;
-    assert.deepEqual(actualResult, expectedResult);
+    assert.deepEqual(actualResult, expectedResult, 'should return unefined if no columns');
   });
 
   it('checks with non positive value', function () {
