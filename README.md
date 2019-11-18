@@ -1,27 +1,18 @@
-# Chart-JS.
+# Charts
 
-## Description.
+That amazing library was created in order to 
+help visualize data by chart. Also you can interact with them.
+Graphs are drawn using SVG. The container is scalable, in addition,
+you can specify your own dimensions. Also you can update styles with css.
+Graphics supports touch events. Covered in tests.
 
-The goal is to develop software for showing simple charts based on input data.
-An Example app show 5 charts on one screen, based on the input data.
-deploy: https://dreamy-davinci-895748.netlify.com/
-
-## Features
-* To display the graphs used svg.
-* Allow to use 2 color theme.
-* It is possible to select a schedule, zoom, moving.
-* The app is also adaptive for mobile devices.
-* Has browser support: Google Chrome, Edge, Mozilla Firefox (on other browsers testing was not conducted).
-
-## 2019 CodeReview 
-- remove re-renders
-- extend abstraction level
-- optimized chart rendering
+You can visit: https://laughing-hawking-5b88bd.netlify.com/ 
+<br>To show deploy with test input data the data.
 ## Installation:
 
-* `git clone https://github.com/mrDreaml/telegram-chart-js.git`
-* npm install
-* npm run start
+* `npm install`
+* `npm run prod` or to run dev `npm run dev`
 * visit `http://localhost:9000/`
 
-<h6>Author: mrDreaml</h6>
+## Additional
+Application is under development.
