@@ -50,7 +50,8 @@ class Focus extends PureComponent {
     event.preventDefault();
     const { container } = this.props;
     this.listener = mouseEvent => this.calcAndUpdateRange(mouseEvent, data);
-    container.addEventListener('mousemove', this.listener);
+    container.addEventListener('mousemove', this.listener, false);
+    container.addEventListener('touchmove', this.listener, false);
   };
 
   stopDrag = () => {

@@ -18,11 +18,9 @@ export const calcNewRange = ({
     newRange[data] = index;
   }
 
-  console.log(newRange, selfRange)
   if (isValidRange(newRange, selfRange)) {
     return newRange;
   }
-  return;
 };
 
 export const calcFocusBasis = (x, range, xStep) => Math.round((x - Math.round(range[0] * xStep)) / xStep);
