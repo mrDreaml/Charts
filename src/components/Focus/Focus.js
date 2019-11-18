@@ -23,7 +23,11 @@ class Focus extends PureComponent {
   }
 
   calcAndUpdateRange = (event, data) => {
-    const { x } = getOffset(event);
+    let offset;
+    if (event.type === 'touchmove') {
+      offset = getOffset(event.touches[0]);
+    }
+    const { x } = offset || getOffset(event);
     const { updateRange, steps: { xStep }, selfRange } = this.props;
     const { range } = this.state;
     if (!this.focusBasis) {
@@ -77,6 +81,7 @@ class Focus extends PureComponent {
       <div
         onMouseDown={e => this.rangeDrag(e, id)}
         onTouchStart={e => this.rangeDrag(e, id)}
+        onTouchEnd={this.stopDrag}
         className={id === 0 ? CLASS_NAMES.focusBorder.left : CLASS_NAMES.focusBorder.right}
         style={{
           width: `${borderWidth}px`,
@@ -98,6 +103,7 @@ class Focus extends PureComponent {
         <div
           onMouseDown={e => this.rangeDrag(e, [0, 1])}
           onTouchStart={e => this.rangeDrag(e, [0, 1])}
+          onTouchEnd={this.stopDrag}
           style={{
             width,
             transform: `translate3d(${leftWidth}px, 0, 0)`,
