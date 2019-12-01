@@ -17,7 +17,6 @@ describe('getActualColumns', function () {
 
   const range = [0, 2];
 
-  // lab 3
   it('checks with all valid data', function () {
     const actualResult = getActualColumns(columns, selectedGraphics, range);
     const expectedResult = {
@@ -78,8 +77,6 @@ describe('getActualColumns', function () {
     };
     assert.deepEqual(actualResult, expectedResult);
   });
-
-  // lab 3 ^
 
   it('checks with zero range[0, 0]', function () {
     const rangeTest = [0, 0];

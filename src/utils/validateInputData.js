@@ -4,10 +4,12 @@ import _isString from 'lodash/isString';
 import * as R from 'ramda';
 
 const and = (...args) => param => args.reduce((acc, v) => acc && v(param), true);
-const isListOfPositiveNumbers = R.both(Array.isArray, R.all(value => _isNumber(value)
+export const isValidPositiveNumber = value => _isNumber(value)
     && value !== Infinity
     && !_isNaN(value)
-    && value >= 0));
+    && value >= 0;
+
+const isListOfPositiveNumbers = R.both(Array.isArray, R.all(isValidPositiveNumber));
 
 const isHexColor = color => /^#([0-9a-f]{6}|[0-9a-f]{3})$/i.test(color);
 const isListOfUniq = list => R.uniq(list).length === list.length;
