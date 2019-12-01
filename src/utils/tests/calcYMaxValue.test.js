@@ -3,6 +3,9 @@ import { calcYMaxValue } from '../containerBase';
 const assert = require('assert');
 
 describe('calcYMaxValue', function () {
+
+  // lab 3
+
   it('checks with all valid data', function () {
     const columnsTest = {
       x: [1, 2, 3, 4, 5],
@@ -18,13 +21,24 @@ describe('calcYMaxValue', function () {
   it('checks without x column', function () {
     const columnsTest = {
       y0: [1, 2, 3, 4, 5],
-      y1: [1, 2, 3, 4, 5],
     };
 
     const actualResult = calcYMaxValue(columnsTest);
     const expectedResult = 5;
     assert.deepEqual(actualResult, expectedResult);
   });
+
+  it('checks without y columns', function () {
+    const columnsTest = {
+      x: [1, 2, 3, 4, 5],
+    };
+
+    const actualResult = calcYMaxValue(columnsTest);
+    const expectedResult = 0;
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
+  // lab 3 ^
 
   it('checks with empty data', function () {
     const columnsTest = {};

@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
+import * as R from 'ramda';
 import ChartJS from '../ChartMainContainer/Hoc';
 import ChartJSMap from '../ChartMapContainer/Hoc';
 import ChartSelector from '../ChartSelector/ChartSelector';
 import constants from '../../constants/constants';
 
 import './style.scss';
+import {isValidInputData} from '../../utils/validateInputData';
 
 const CLASS_NAMES = {
   chartMapContainer: 'chart-map-container--section',
@@ -26,12 +28,14 @@ class ChartJSContainer extends PureComponent {
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
     const { inputData } = this.props;
-    this.setState({
-      selectedGraphics: Object.keys(inputData.names).reduce((result, name) => {
-        result[name] = true;
-        return result;
-      }, {}),
-    });
+    if (isValidInputData(inputData)) {
+      this.setState({
+        selectedGraphics: Object.keys(inputData.names).reduce((result, name) => {
+          result[name] = true;
+          return result;
+        }, {}),
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -80,7 +84,7 @@ class ChartJSContainer extends PureComponent {
   }
 
   renderChartMap() {
-    const { inputData: { columns: { x }} } = this.props;
+    const {inputData: {columns: {x}}} = this.props;
     const { width, selectedGraphics, range } = this.state;
     if (this.chartMapContainer && this.chartMapContainer.current) {
       return (
@@ -102,15 +106,23 @@ class ChartJSContainer extends PureComponent {
 
   render() {
     const { selectedGraphics } = this.state;
+    if (!R.isEmpty(selectedGraphics)) {
+      return (
+          <>
+            <section ref={this.chartMainContainer} className={CLASS_NAMES.chartMainContainer}>
+              {this.renderChartMain()}
+            </section>
+            <section ref={this.chartMapContainer} className={CLASS_NAMES.chartMapContainer}>
+              {this.renderChartMap()}
+            </section>
+            <ChartSelector {...this.props} graphicSwitcher={this.graphicSwitcher} selectedGraphics={selectedGraphics}/>
+          </>
+      );
+    }
     return (
-      <>
-        <section ref={this.chartMainContainer} className={CLASS_NAMES.chartMainContainer}>
-          {this.renderChartMain()}
-        </section>
-        <section ref={this.chartMapContainer} className={CLASS_NAMES.chartMapContainer}>
-          {this.renderChartMap()}
-        </section>
-        <ChartSelector {...this.props} graphicSwitcher={this.graphicSwitcher} selectedGraphics={selectedGraphics} />
+        <>
+          <section ref={this.chartMainContainer} className={CLASS_NAMES.chartMainContainer}/>
+          <section ref={this.chartMapContainer} className={CLASS_NAMES.chartMapContainer}/>
       </>
     );
   }

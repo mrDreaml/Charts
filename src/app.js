@@ -31,14 +31,12 @@ class App extends Component {
       <>
         <Header changeTheme={this.switchTheme} theme={theme} />
         <h2>Followers</h2>
-        { inputData.map((currentData, i) => {
-          return (
+        {inputData.map((currentData, i) => (
             <Fragment key={`Example:${i}`}>
               <h2>{`Chart №${i}`}</h2>
-              <ChartJS key={`ChartJS${i}`} inputData={currentData} theme={theme} />
+              <ChartJS key={`ChartJS${i}`} inputData={currentData} theme={theme}/>
             </Fragment>
-          );
-        })}
+        ))}
       </>
     );
   }

@@ -17,6 +17,7 @@ describe('getActualColumns', function () {
 
   const range = [0, 2];
 
+  // lab 3
   it('checks with all valid data', function () {
     const actualResult = getActualColumns(columns, selectedGraphics, range);
     const expectedResult = {
@@ -26,7 +27,7 @@ describe('getActualColumns', function () {
     assert.deepEqual(actualResult, expectedResult);
   });
 
-  it('checks with all disbled selectedGraphics', function () {
+  it('checks with all disabled selectedGraphics', function () {
     const selectedGraphicsTest = {
       x: false,
       y0: false,
@@ -45,11 +46,40 @@ describe('getActualColumns', function () {
     };
     const actualResult = getActualColumns(columns, selectedGraphicsTest, range);
     const expectedResult = {
-      x: [1, 2],
       y0: [1, 2],
     };
-    assert.deepEqual(actualResult, expectedResult, 'result should always contain x field');
+    assert.deepEqual(actualResult, expectedResult);
   });
+
+  it('checks, when only x selected', function () {
+    const selectedGraphicsTest = {
+      x: true,
+      y0: false,
+      y1: false,
+    };
+    const actualResult = getActualColumns(columns, selectedGraphicsTest, range);
+    const expectedResult = {
+      x: [1, 2],
+    };
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
+  it('checks, when only y selected, one element on columns', function () {
+    const selectedGraphicsTest = {
+      x: false,
+      y0: true,
+    };
+    const columnsTest = {
+      y0: [1],
+    };
+    const actualResult = getActualColumns(columnsTest, selectedGraphicsTest, range);
+    const expectedResult = {
+      y0: [1],
+    };
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
+  // lab 3 ^
 
   it('checks with zero range[0, 0]', function () {
     const rangeTest = [0, 0];
