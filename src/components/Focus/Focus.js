@@ -24,6 +24,7 @@ class Focus extends PureComponent {
 
   calcAndUpdateRange = (event, data) => {
     let offset;
+    event.preventDefault();
     if (event.type === 'touchmove') {
       offset = getOffset(event.touches[0]);
     }
@@ -62,7 +63,6 @@ class Focus extends PureComponent {
     container.removeEventListener('mousemove', this.listener, false);
     container.removeEventListener('touchmove', this.listener, false);
     this.debounceUpdateRange = undefined;
-    this.listener = undefined;
     this.focusBasis = undefined;
   };
 

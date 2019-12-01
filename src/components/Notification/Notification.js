@@ -44,7 +44,7 @@ const Notification = ({
         }}
       >
         { notes.map(({ property, value }) => (
-          <div className={CLASS_NAMES.note} key={`${CLASS_NAMES.note}=${value}`}>
+            <div className={CLASS_NAMES.note} key={`${CLASS_NAMES.note}=${property}:${value}`}>
             <span className={CLASS_NAMES.note.property}>{`${property}:`}</span>
             <span className={CLASS_NAMES.note.value}>{_round(value, constants.defaultRounding)}</span>
           </div>
