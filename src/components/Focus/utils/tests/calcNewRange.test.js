@@ -18,6 +18,40 @@ describe('calcNewRange', function () {
     assert.deepEqual(actualResult, expectedResult);
   });
 
+  it('check, data array and collision', function () {
+    const dataTest = [0, 1];
+    const actualResult = calcNewRange({
+      x, data: dataTest, xStep, selfRange, range, focusBasis,
+    });
+    const expectedResult = undefined; // collision
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
+  it('check, data array and no collision', function () {
+    const dataTest = [0, 1];
+    const actualResult = calcNewRange({
+      x: 300, data: dataTest, xStep: 20, selfRange, range, focusBasis,
+    });
+    const expectedResult = [5, 10]; // no collision
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
+  it('check, data is not array and no collision', function () {
+    const actualResult = calcNewRange({
+      x, data, xStep, selfRange, range, focusBasis,
+    });
+    const expectedResult = [1, 5]; // no collision
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
+  it('check, data is not array and collision', function () {
+    const actualResult = calcNewRange({
+      x: 100, data, xStep: 20, selfRange, range, focusBasis,
+    });
+    const expectedResult = undefined; // collision
+    assert.deepEqual(actualResult, expectedResult);
+  });
+
   it('check with all valid data, left + right border shift', function () {
     const dataTest = [0, 1];
     const rangeTest = [60, 90];
