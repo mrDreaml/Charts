@@ -81,10 +81,7 @@ describe('getActualColumns', function () {
   it('checks with zero range[0, 0]', function () {
     const rangeTest = [0, 0];
     const actualResult = getActualColumns(columns, selectedGraphics, rangeTest);
-    const expectedResult = {
-      x: [],
-      y0: [],
-    };
+    const expectedResult = {};
     assert.deepEqual(actualResult, expectedResult);
   });
 
@@ -101,14 +98,14 @@ describe('getActualColumns', function () {
   it('checks with invalid range', function () {
     const rangeTest = [0, -1];
     const actualResult = getActualColumns(columns, selectedGraphics, rangeTest);
-    const expectedResult = undefined;
+    const expectedResult = {};
     assert.deepEqual(actualResult, expectedResult, 'range can not contain negative values and range[1] > range[0]');
   });
 
   it('checks with empty selectedGraphics object', function () {
     const selectedGraphicsTest = {};
     const actualResult = getActualColumns(columns, selectedGraphicsTest, range);
-    const expectedResult = undefined;
-    assert.deepEqual(actualResult, expectedResult, 'if no selected graphics should return undefined');
+    const expectedResult = {};
+    assert.deepEqual(actualResult, expectedResult, 'if no selected graphics should return {}');
   });
 });

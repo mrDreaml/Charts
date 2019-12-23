@@ -55,17 +55,6 @@ describe('getNotificationRenderData', function () {
     assert.deepEqual(actualResult, expectedResult, 'collision error');
   });
 
-  it('checks on huge x and y', function () {
-    const xTest = 2000;
-    const yTest = 1000;
-    const actualResult = getNotificationRenderData({
-      x: xTest, y: yTest, xStep, yStep, columns, height, width, colors, names,
-    });
-    const expectedResult = undefined;
-
-    assert.deepEqual(actualResult, expectedResult, 'should not calculate if x or y more then width and height respectively');
-  });
-
   it('checks on negative steps', function () {
     const xStepTest = -10;
     const yStepTest = -10;

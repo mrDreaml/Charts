@@ -35,4 +35,11 @@ describe('isValidColors', function () {
     const expectedResult = false;
     assert.equal(actualResult, expectedResult);
   });
+
+  it('empty', function () {
+    const colors = {};
+    const actualResult = isValidColors(colors);
+    const expectedResult = true;
+    assert.equal(actualResult, expectedResult);
+  });
 });

@@ -13,7 +13,7 @@ export default compose(
 
     return {
       ...props,
-      steps: calcSteps(actualColumns, width, height),
+      steps: calcSteps(actualColumns, width - 3, height),
       inputData: {
         ...inputData,
         columns: actualColumns,

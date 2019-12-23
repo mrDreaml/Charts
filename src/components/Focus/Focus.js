@@ -41,7 +41,7 @@ class Focus extends PureComponent {
       if (this.debounceUpdateRange) {
         this.debounceUpdateRange(newRange);
       } else {
-        this.debounceUpdateRange = debounce(10, _data => updateRange(_data));
+        this.debounceUpdateRange = debounce(1, _data => updateRange(_data));
         this.debounceUpdateRange(newRange);
       }
 

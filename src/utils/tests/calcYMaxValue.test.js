@@ -4,8 +4,6 @@ const assert = require('assert');
 
 describe('calcYMaxValue', function () {
 
-  // lab 3
-
   it('checks with all valid data', function () {
     const columnsTest = {
       x: [1, 2, 3, 4, 5],
@@ -38,13 +36,11 @@ describe('calcYMaxValue', function () {
     assert.deepEqual(actualResult, expectedResult);
   });
 
-  // lab 3 ^
-
   it('checks with empty data', function () {
     const columnsTest = {};
 
     const actualResult = calcYMaxValue(columnsTest);
-    const expectedResult = undefined;
+    const expectedResult = 0;
     assert.deepEqual(actualResult, expectedResult, 'should return unefined if no columns');
   });
 
@@ -54,7 +50,7 @@ describe('calcYMaxValue', function () {
     };
 
     const actualResult = calcYMaxValue(columnsTest);
-    const expectedResult = undefined;
-    assert.deepEqual(actualResult, expectedResult, 'values should be positive');
+    const expectedResult = 0;
+    assert.deepEqual(actualResult, expectedResult);
   });
 });

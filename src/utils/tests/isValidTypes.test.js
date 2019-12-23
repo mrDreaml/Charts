@@ -20,4 +20,11 @@ describe('isValidTypes', function () {
     const expectedResult = false;
     assert.equal(actualResult, expectedResult);
   });
+
+  it('empty', function () {
+    const types = {};
+    const actualResult = isValidTypes(types);
+    const expectedResult = false;
+    assert.equal(actualResult, expectedResult);
+  });
 });

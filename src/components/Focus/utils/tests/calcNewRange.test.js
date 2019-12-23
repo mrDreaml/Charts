@@ -36,14 +36,6 @@ describe('calcNewRange', function () {
     assert.deepEqual(actualResult, expectedResult);
   });
 
-  it('check, data is not array and no collision', function () {
-    const actualResult = calcNewRange({
-      x, data, xStep, selfRange, range, focusBasis,
-    });
-    const expectedResult = [1, 5]; // no collision
-    assert.deepEqual(actualResult, expectedResult);
-  });
-
   it('check, data is not array and collision', function () {
     const actualResult = calcNewRange({
       x: 100, data, xStep: 20, selfRange, range, focusBasis,
@@ -86,7 +78,7 @@ describe('calcNewRange', function () {
     const actualResult = calcNewRange({
       x, data, xStep, selfRange, range, focusBasis: focusBasisTest,
     });
-    const expectedResult = undefined;
-    assert.deepEqual(actualResult, expectedResult, 'focus basis, should be positive');
+    const expectedResult = [1, 5];
+    assert.deepEqual(actualResult, expectedResult);
   });
 });

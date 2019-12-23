@@ -153,7 +153,7 @@ describe('chartRenderData', function () {
 
     const expectedResult = {
       actualColumns: {x: [1, 2, 3], y0: [1, 2, 3]},
-      steps: {},
+      steps: undefined,
       yMaxValue: 3,
     };
     assert.deepEqual(actualResult, expectedResult);

@@ -41,4 +41,11 @@ describe('isValidInputDataStructure', function () {
     const expectedResult = false;
     assert.equal(actualResult, expectedResult);
   });
+
+  it('check on empty', function () {
+    const inputData = {};
+    const actualResult = isValidInputDataStructure(inputData);
+    const expectedResult = false;
+    assert.equal(actualResult, expectedResult);
+  });
 });

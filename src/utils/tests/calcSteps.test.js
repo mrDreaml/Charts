@@ -9,8 +9,6 @@ describe('calcSteps', function () {
     y1: [1, 2, 3, 4, 5],
   };
 
-  // Lab 3 added
-
   it('checks with all valid data', function () {
     const width = 1200;
     const height = 700;
@@ -62,14 +60,12 @@ describe('calcSteps', function () {
     assert.deepEqual(actualResult, expectedResult);
   });
 
-  // Lab 3 ^
-
   it('checks with empty columns', function () {
     const width = 1200;
     const height = 700;
     const columnsTest = {};
     const actualResult = calcSteps(columnsTest, width, height);
-    const expectedResult = undefined;
+    const expectedResult = {};
     assert.deepEqual(actualResult, expectedResult, 'if no columns, should return undefined');
   });
 

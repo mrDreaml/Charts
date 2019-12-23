@@ -3,7 +3,7 @@ import _isNaN from 'lodash/isNaN';
 import _isString from 'lodash/isString';
 import * as R from 'ramda';
 
-const and = (...args) => param => args.reduce((acc, v) => acc && v(param), true);
+export const and = (...args) => param => args.reduce((acc, v) => acc && v(param), true);
 export const isValidPositiveNumber = value => _isNumber(value)
     && value !== Infinity
     && !_isNaN(value)
@@ -52,7 +52,9 @@ export const isValidTypes = R.compose(
     R.values,
 );
 
-export const isValidInputDataStructure = R.compose(
+export const isValidInputDataStructure = and(
+    R.compose(R.not, R.isEmpty),
+    R.compose(
     logOnError(INVALID_INPUT_DATA_ERROR_MSG.concat(', Please check data structure')),
     R.both(
         R.compose(
@@ -65,6 +67,7 @@ export const isValidInputDataStructure = R.compose(
             R.values,
             R.pick(['columns', 'types']),
         ),
+    ),
     ),
 );
 

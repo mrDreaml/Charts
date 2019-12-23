@@ -5,7 +5,7 @@ const assert = require('assert');
 describe('isValidNames', function () {
   it('checks with all valid data', function () {
     const names = {
-      y0: 'gross cost', y1: 'actual fee', y2: 'market', x: 'days',
+      y0: 'gross cost', y1: 'actual fee', y2: 'market',
     };
     const actualResult = isValidNames(names);
     const expectedResult = true;
@@ -27,6 +27,13 @@ describe('isValidNames', function () {
     };
     const actualResult = isValidNames(names);
     const expectedResult = false;
+    assert.equal(actualResult, expectedResult);
+  });
+
+  it('empty', function () {
+    const names = {};
+    const actualResult = isValidNames(names);
+    const expectedResult = true;
     assert.equal(actualResult, expectedResult);
   });
 });

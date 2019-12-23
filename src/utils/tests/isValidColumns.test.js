@@ -35,4 +35,11 @@ describe('isValidColumns', function () {
     const expectedResult = false;
     assert.equal(actualResult, expectedResult);
   });
+
+  it('empty', function () {
+    const columns = {};
+    const actualResult = isValidColumns(columns);
+    const expectedResult = true;
+    assert.equal(actualResult, expectedResult);
+  });
 });

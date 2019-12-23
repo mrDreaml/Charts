@@ -18,12 +18,12 @@ const circlesRender = ({ circles }) => {
   const xPos = circles[constants.colNameX];
   return circles.data.map(({ color, value }) => (
     <div
-      style={{
+        style={{
         transform: `translate3d(${xPos - 5}px, ${value - 5}px, 0)`,
         borderColor: color,
       }}
-      className={CLASS_NAMES.circle}
-      key={`${CLASS_NAMES.circle}=${value}`}
+        className={CLASS_NAMES.circle}
+        key={`${CLASS_NAMES.circle}=${value} ${color}`}
     />
   ));
 };
@@ -31,9 +31,13 @@ const circlesRender = ({ circles }) => {
 const Notification = ({
   isShow, pos, notes, circles,
 }) => {
+  if (!pos || !notes || !circles) {
+    return null;
+  }
   if (!isShow) {
     return null;
   }
+
   const [x, y] = pos;
   return (
     <>

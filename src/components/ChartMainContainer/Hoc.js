@@ -14,7 +14,7 @@ export default compose(
 
     return {
       ...props,
-      steps: calcSteps(actualColumns, width, height),
+      steps: calcSteps(actualColumns, width - 50, height - 10),
       inputData: {
         ...inputData,
         columns: actualColumns,

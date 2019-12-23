@@ -7,7 +7,7 @@ const isValidRange = R.both(R.all(n => n >= 0), ([r0, r1]) => r1 > r0);
 export const getActualColumns = (columns, selectedGraphics, range) => ((isValidColumns(columns) && isValidRange(range))
     ? Object.entries(columns).reduce((acc, [key, values]) => {
       if (selectedGraphics[key]) {
-        acc[key] = values.slice(...range);
+        acc[key] = values.slice(range[0], range[1] + 1);
       }
       return acc;
     }, {})
@@ -27,7 +27,7 @@ export const calcSteps = (columns, width, height) => (isValidPositiveNumber(widt
       }
       return acc;
     }, {})
-    : {});
+    : undefined);
 
 export const calcYMaxValue = columns => Object.entries(columns).reduce((acc, [key, values]) => {
   if (key !== constants.colNameX) {
