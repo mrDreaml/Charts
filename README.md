@@ -12,7 +12,7 @@ You can visit: https://laughing-hawking-5b88bd.netlify.com/
 
 * `npm install`
 * `npm run prod` or to run dev `npm run dev`
-* visit `http://localhost:9000/`
+* visit `http://localhost:9001/`
 
 ## Additional
 Application is under development.

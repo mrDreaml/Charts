@@ -3,7 +3,6 @@ import ChartLines from '../ChartLines/ChartLines';
 
 import constants from '../../constants/constants';
 
-import '../../styles/style.scss';
 import './style.scss';
 
 class Chart extends PureComponent {
