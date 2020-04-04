@@ -3,7 +3,7 @@ const constants = {
   graphicMapClassName: 'ChartJS-map',
   chartRows: 5,
   chartColumns: 6,
-  range: [0, 2],
+  range: [0, 3],
   defaultRounding: 3,
   minFlipSize: 3,
   rangeValues: {
