@@ -16,3 +16,7 @@ You can visit: https://laughing-hawking-5b88bd.netlify.com/
 
 ## Additional
 Application is under development.
+
+## CATS
+to run native build select DATA=`__UNIQ_DATA_CHARTS__` at index.js
+and run: `npm run buildNative`, you can also change build mode at `.env`
