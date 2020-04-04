@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
@@ -28,9 +29,12 @@ module.exports = {
     minimize: true,
   },
   plugins: [
+    new Dotenv({
+      path: path.resolve(__dirname, './.env'),
+    }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-  // devtool: 'source-map',
+  //devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,

@@ -1,4 +1,4 @@
-const len = 200;
+const len = 30;
 
 export default {
   columns: {

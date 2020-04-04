@@ -7,6 +7,7 @@
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack-dev-server --mode production",
     "build": "webpack -p",
+    "buildNative": "npm run build && node ./temp/build.js",
     "base-tests": "mocha --opts mocha.opts ./src/utils/tests/**/*.test.js",
     "component-tests": "mocha --opts mocha.opts ./src/components/**/*.test.js",
     "tests": "mocha --opts mocha.opts ./src/**/*.test.js"
@@ -41,6 +42,8 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "css-loader": "^2.1.1",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
     "lodash": "^4.17.15",
     "node-sass": "^4.11.0",
     "ramda": "^0.26.1",
